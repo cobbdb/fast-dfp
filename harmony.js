@@ -21,14 +21,11 @@ var Harmony = (function () {
                 googletag.display(lastId);
             }
         },
-        newSlot: function (name, sizes, mapping) {
-            mapping = mapping || [];
+        newSlot: function (name, sizes) {
             var id = 'div-gpt-ad-' + name;
             var slot = googletag.defineSlot(adUnitCode, sizes, id);
             slot.divId = id;
             lastId = id;
-            slot.setTargeting('ad_slot', name);
-            slot.defineSizeMapping(mapping);
             slot.addService(googletag.pubads());
             googletag.pubads().addEventListener(
                 'slotRenderEnded',
